@@ -8,13 +8,23 @@ import entities.Bill;
 public class Program {
 
 	public static void main(String[] args) {
-		// TODO Auto-generated method stub
 		
 		Locale.setDefault(Locale.US);
 		Scanner sc = new Scanner(System.in);
 		
-		System.out.print("Sexo: ");
-		char gender = sc.next().charAt(0);
+		char gender;
+		
+		do {
+			System.out.print("Sexo: ");
+			gender = sc.next().charAt(0);
+			
+			if (gender != 'F' && gender != 'M') {
+				
+				System.out.println("Opcao de Sexo invalida");
+			}
+			
+		}while (gender != 'F' && gender != 'M');
+			
 		System.out.print("Quantidade de cervejas: ");
 		int beer = sc.nextInt();
 		System.out.print("Quantidade de refrigerantes: ");
@@ -31,6 +41,7 @@ public class Program {
 		if (bill.cover() == 0.0) {
 			
 			System.out.println("Isento de Couvert");
+			
 		}else {
 			
 			System.out.printf("Couvert = R$ %.2f%n", bill.cover());
@@ -40,13 +51,8 @@ public class Program {
 		
 		System.out.println();
 		System.out.printf("Comsumo = R$ %.2f%n", bill.total());
-		
-		
-		
-		
-		
+			
 		sc.close();
-
 	}
 
 }
